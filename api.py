@@ -42,6 +42,21 @@ class Customer(db.Model):
             raise ValidationError('Cliente no valido: missing' + e.args[0])
         return self
     
+class Product
+
+
+class Order(db.Model):
+    __tablename__ = 'orders'
+    id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeingKey('customer.id'), index=True)
+    date = db.Column(db.DateTime, default=dateutil.now())
+    ...
+
+
+class Item
+
+# ----------------------- fin de clases
+
 
 @app.route('/customers/', methods=['GET'])
 def get_customers():
